@@ -6,30 +6,13 @@ class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: '',
-      password: '',
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  /* sendData = () => {
-    this.props.parentCallback("Hey Popsie, How’s it going?");
-  }*/
-
   handleChange(event) {
 
-    const target = event.target;
-    const value = target.value;
-    const username = target.name;
-    const email = target.name;
-    const password = target.name;
-
-    this.setState({
-      [username]: value,
-      [email]: value,
-      [password]: value
-    });
   };
 
   handleSubmit(event) {
@@ -47,6 +30,11 @@ class Login extends Component {
       });
 
   };
+ 
+  componentDidMount(){
+
+  };
+
   render() {
     return (
       <Container> Login
