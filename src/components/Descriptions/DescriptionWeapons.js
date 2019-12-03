@@ -1,10 +1,40 @@
 import React, { Component } from 'react'
 import { Container, Col, Row, Table } from 'reactstrap'
+import axios from 'axios'
 
-class DescriptionArmors extends Component {
+class DescriptionWeapons extends Component {
     constructor(props) {
         super(props)
-        this.state = []
+        this.state = {
+            weapons: []
+        }
+    }
+
+    tableData() {
+        if (this.state.weapons.length === 0) {
+            axios.get('http://127.0.0.1:8000/api/attributes')
+                .then(res => {
+                    console.log(res);
+                    console.log(res.data);
+                    this.setState({
+                        weapons: res.data,
+                    })
+                });
+        }
+
+        return this.state.weapons.map((weapons, index) => {
+            const { id, weapon, description, weapontype, damage, damagetype } = weapons //destructuring
+            return (
+                <tr key={id}>
+                    <td>{id}</td>
+                    <td>{weapon}</td>
+                    <td>{description}</td>
+                    <td>{weapontype}</td>
+                    <td>{damage}</td>
+                    <td>{damagetype}</td>
+                </tr>
+            )
+        })
     }
 
     render() {
@@ -32,14 +62,14 @@ class DescriptionArmors extends Component {
                                         <tr>
                                             <th>#</th>
                                             <th>Weapon</th>
-                                            <th>Weapon Type</th>
                                             <th>Description</th>
+                                            <th>Weapon Type</th>
                                             <th>Damage</th>
                                             <th>Damage Type</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                       {/* table rows */}
+                                        {this.tableData()}
                                     </tbody>
                                 </Table>
                             </Col>
@@ -52,4 +82,4 @@ class DescriptionArmors extends Component {
     }
 }
 
-export default DescriptionArmors;
+export default DescriptionWeapons;

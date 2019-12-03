@@ -1,10 +1,40 @@
 import React, { Component } from 'react'
 import { Container, Col, Row, Table } from 'reactstrap'
+import axios from 'axios'
 
 class DescriptionArmors extends Component {
     constructor(props) {
         super(props)
-        this.state = []
+        this.state = {
+            armors: [],
+        }
+    }
+
+    tableData() {
+        if (this.state.armors.length === 0) {
+            axios.get('http://127.0.0.1:8000/api/armors')
+                .then(res => {
+                    console.log(res);
+                    console.log(res.data);
+                    this.setState({
+                        armors: res.data,
+                    })
+                });
+        }
+
+        return this.state.armors.map((armors, index) => {
+            const { id, armor, description, armorclass, armortype } = armors //destructuring
+            return (
+
+                <tr key={id}>
+                    <td>{id}</td>
+                    <td>{armor}</td>
+                    <td>{description}</td>
+                    <td>{armorclass}</td>
+                    <td>{armortype}</td>
+                </tr>
+            )
+        })
     }
 
     render() {
@@ -21,11 +51,11 @@ class DescriptionArmors extends Component {
                             </h3>
                             <Col>
                                 <p>
-                                D&D worlds are a vast tapestry made up of many different cultures, each with its own technology level. For this reason, adventurers have access to a variety of armor types, ranging from leather armor to chain mail to costly plate armor, with several other kinds of armor in between. The Armor table collects the most commonly available types of armor found in the game and separates them into three categories: light armor, medium armor, and heavy armor. Many warriors supplement their armor with a shield
+                                    D&D worlds are a vast tapestry made up of many different cultures, each with its own technology level. For this reason, adventurers have access to a variety of armor types, ranging from leather armor to chain mail to costly plate armor, with several other kinds of armor in between. The Armor table collects the most commonly available types of armor found in the game and separates them into three categories: light armor, medium armor, and heavy armor. Many warriors supplement their armor with a shield
                                 </p>
                             </Col>
                             <Col>
-        <Table responsive bordered hover size="sm">
+                                <Table responsive bordered hover size="sm">
                                     <thead>
                                         <tr>
                                             <th>#</th>
@@ -36,7 +66,7 @@ class DescriptionArmors extends Component {
                                         </tr>
                                     </thead>
                                     <tbody>
-                                       {/* table rows */}
+                                        {this.tableData()}
                                     </tbody>
                                 </Table>
                             </Col>

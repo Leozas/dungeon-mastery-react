@@ -1,10 +1,41 @@
 import React, { Component } from 'react'
 import { Container, Col, Row, Table } from 'reactstrap'
+import axios from 'axios'
 
-class DescriptionArmors extends Component {
+class DescriptionSpells extends Component {
     constructor(props) {
         super(props)
-        this.state = []
+        this.state = {
+            spells: []
+        }
+    }
+
+    tableData() {
+        if (this.state.spells.length === 0) {
+            axios.get('http://127.0.0.1:8000/api/spells')
+                .then(res => {
+                    console.log(res);
+                    console.log(res.data);
+                    this.setState({
+                        spells: res.data,
+                    })
+                });
+        }
+
+        return this.state.spells.map((spells, index) => {
+            const { id, spell, description, range, damage, damagetype } = spells //destructuring
+            return (
+
+                <tr key={id}>
+                    <td>{id}</td>
+                    <td>{spell}</td>
+                    <td>{description}</td>
+                    <td>{range}</td>
+                    <td>{damage}</td>
+                    <td>{damagetype}</td>
+                </tr>
+            )
+        })
     }
 
     render() {
@@ -17,7 +48,7 @@ class DescriptionArmors extends Component {
                     <Row>
                         <Col>
                             <h3>
-                                Armors
+                                Spells
                             </h3>
                             <Col>
                                 <p>
@@ -38,11 +69,10 @@ class DescriptionArmors extends Component {
                                             <th>Range</th>
                                             <th>Damage</th>
                                             <th>Damage Type</th>
-
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {/* table rows */}
+                                        {this.tableData()}
                                     </tbody>
                                 </Table>
                             </Col>
@@ -55,4 +85,4 @@ class DescriptionArmors extends Component {
     }
 }
 
-export default DescriptionArmors;
+export default DescriptionSpells;
