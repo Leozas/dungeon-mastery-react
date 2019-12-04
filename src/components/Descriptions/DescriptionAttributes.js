@@ -12,7 +12,7 @@ class DescriptionAttributes extends Component {
 
     tableData() {
         if (this.state.attributes.length === 0) {
-            axios.get('http://127.0.0.1:8000/api/attributes')
+            axios.get('https://dungeonmastery.appspot.com/api/attributes')
                 .then(res => {
                     console.log(res);
                     console.log(res.data);

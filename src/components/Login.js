@@ -40,7 +40,7 @@ class Login extends Component {
       password: this.state.password,
     };
 
-    axios.post('http://127.0.0.1:8000/api/login', user)
+    axios.post('https://dungeonmastery.appspot.com/api/login', user)
       .then(res => {
         console.log(res);
         console.log(res.data);

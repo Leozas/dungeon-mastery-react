@@ -11,6 +11,7 @@ import DescriptionWeapons from './components/Descriptions/DescriptionWeapons'
 import DescriptionArmors from './components/Descriptions/DescriptionArmors'
 import DescriptionSpells from './components/Descriptions/DescriptionSpells'
 import DNDCard from './components/AboutDND/DNDCard'
+import Popovertest from './components/Popovertest'
 /*
       <Homepage />
       <DescriptionAttributes />

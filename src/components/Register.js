@@ -55,13 +55,13 @@ class Register extends Component {
       password: this.state.password,
     };
 
-    axios.post('http://127.0.0.1:8000/api/register', user)
+    axios.post('https://dungeonmastery.appspot.com/api/register', user)
       .then(res => {
         console.log(res);
         console.log(res.data);
       });
 
-    axios.post('http://127.0.0.1:8000/api/login', login)
+    axios.post('https://dungeonmastery.appspot.com/api/login', login)
       .then(res => {
         console.log(res);
         console.log(res.data);
