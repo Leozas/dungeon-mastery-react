@@ -17,15 +17,18 @@ class DungeonMasteryCard extends Component {
           <CardTitle>What is Dungeons and Dragons?</CardTitle>
           <CardImg src="https://www.freelogodesign.org/file/app/client/thumb/c974fa44-00b9-4fa0-add8-7731d61b91c9_200x200.png?1575402373052" />
           <CardText>
-            <div className="embed-responsive embed-responsive-16by9">
-              <iframe className="embed-responsive-item" src="https://www.youtube.com/embed/2PEt5RdNHNw" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
-            </div>
             <p>
-            New to the world of Dungeons & Dragons? Here's the place to start. Take a closer look at this legendary fantasy role-playing game and find out why millions of players worldwide have stepped into the boots of mighty heroes (and sneaky antiheroes) to create their own stories.
+                We are constantly battling information overload. As you read this right now you may be multitasking trying to take care of a late night dinner, or some work, or maybe even be listening to some music or an audiobook. Dungeons and Dragons is no different. 
+
+                Dungeon Mastery aims to bring the information you need, and only that, to your fingertips at the touch of a button to keep your D&D Session flowing. Juggling Chris's Warrior's dexterity modifier with his enemy Goblin's attack damage, all the while Nelsy's Mage is trying to cast fireball... It's a lot of moving parts for  Dungeon Masters. 
+
+                Let get you some Mastery of your sitation with Dungeon Mastery.
+
+                Dungeon Mastery currently follows the Dungeons and Dragons Fifth Edition Ruleset
             </p>
           </CardText>
-          <Button href="https://dnd.wizards.com/dungeons-and-dragons/what-is-dd">
-            Dungeons and Dragons Official Pages
+          <Button href="">
+            Sign Up
           </Button>
         </CardBody>
       </Card>

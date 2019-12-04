@@ -11,11 +11,7 @@ import DescriptionWeapons from './components/Descriptions/DescriptionWeapons'
 import DescriptionArmors from './components/Descriptions/DescriptionArmors'
 import DescriptionSpells from './components/Descriptions/DescriptionSpells'
 import DNDCard from './components/AboutDND/DNDCard'
-
-function App() {
-  return (
-    <>
-
+/*
       <Homepage />
       <DescriptionAttributes />
       <DescriptionWeapons />
@@ -23,7 +19,12 @@ function App() {
       <DescriptionSpells />
       <DNDCard />
       <Register />
-      <Login />
+      <Login /> */
+function App() {
+  return (
+    <>
+
+
     </>
   );
 }
