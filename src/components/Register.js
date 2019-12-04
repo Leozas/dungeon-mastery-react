@@ -18,16 +18,27 @@ class Register extends Component {
 
 
 
-  handleChange(event){
-    this.setState({ 
-      firstname: event.target.value,
-      lastname: event.target.value,
-      username: event.target.value,
-      email: event.target.value,
-      password: event.target.value });
+  handleChange(event) {
+
+    const target = event.target;
+    const value = target.value;
+    const firstname = target.name;
+    const lastname = target.name;
+    const username = target.name;
+    const email = target.name;
+    const password = target.name;
+
+    this.setState({
+      [firstname]: value,
+      [lastname]: value,
+      [username]: value,
+      [email]: value,
+      [password]: value
+    });
+
   };
 
-  handleSubmit(event){
+  handleSubmit(event) {
     event.preventDefault();
 
     const user = {
@@ -38,12 +49,24 @@ class Register extends Component {
       password: this.state.password,
     };
 
+    const login = {
+      username: this.state.username,
+      email: this.state.email,
+      password: this.state.password,
+    };
+
     axios.post('http://127.0.0.1:8000/api/register', user)
       .then(res => {
         console.log(res);
         console.log(res.data);
       });
-    
+
+    axios.post('http://127.0.0.1:8000/api/login', login)
+      .then(res => {
+        console.log(res);
+        console.log(res.data);
+      });
+
   };
   render() {
     return (
