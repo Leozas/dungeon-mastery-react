@@ -59,20 +59,15 @@ class Register extends Component {
       .then(res => {
         console.log(res);
         console.log(res.data);
-      });
 
-    axios.post('https://dungeonmastery.appspot.com/api/login', login)
-      .then(res => {
-        console.log(res);
-        console.log(res.data);
+        alert('Registration Successful, please Login below.')
       });
-
   };
   render() {
     return (
       <Container> Register
         <Row>
-          <Col>
+          <Col className="bg-secondary">
             <Form onSubmit={this.handleSubmit}>
               <FormGroup>
                 <Label for="registrationFirstname">First Name:</Label>
@@ -94,7 +89,7 @@ class Register extends Component {
                 <Label for="registrationPassword">Password:</Label>
                 <Input type="password" name="password" id="registrationPassword" placeholder="Password, Maximum 12 Characters" maxLength="12" onChange={this.handleChange} />
               </FormGroup>
-              <Button type='submit'>Submit</Button>
+              <Button type='submit' color="primary">Submit</Button>
             </Form >
           </Col>
         </Row>

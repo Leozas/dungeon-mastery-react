@@ -1,13 +1,12 @@
 import React, { Component } from 'react'
-import { Container, Col, Row, Table } from 'reactstrap'
-import axios from 'axios'
-import NavbarMain from '../homepage/NavbarMain'
+import { Container, Col, Row } from 'reactstrap'
+import PopoverCharacters from './PopoverCharacters'
+import PopoverCreatures from './PopoverCreatures'
 
 class Dashboardpage extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            armors: [],
         }
     }
 
@@ -15,8 +14,27 @@ class Dashboardpage extends Component {
 
     render() {
         return (
-            <NavbarMain/>
-            
+
+            <>
+                <Container>
+                    <Row>
+                        <Col>
+                            1
+                    </Col>
+                        <Col>2
+                        <PopoverCharacters />
+                        </Col>
+                        <Col>3
+                    </Col>>
+                    <Col>4
+                        <PopoverCreatures />
+                        </Col>
+                        <Col>5
+                    </Col>
+                    </Row>
+                </Container>
+            </>
+
 
         )
     }

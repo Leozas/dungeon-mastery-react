@@ -8,14 +8,11 @@ class Login extends Component {
     this.state = {
       username: '',
       password: '',
+      token: '',
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
-
-  /* sendData = () => {
-    this.props.parentCallback("Hey Popsie, How’s it going?");
-  }*/
 
   handleChange(event) {
 
@@ -44,14 +41,27 @@ class Login extends Component {
       .then(res => {
         console.log(res);
         console.log(res.data);
-      });
+      
+      if (res.data != "error") {
+        this.setState({
+          token: res.data.token,
+        })
+        localStorage.setItem('user_token', res.data.token);
+        this.props.GetToken()
+        alert("You are logged in");
 
+      } else {
+
+        alert("User Not Found");
+
+      }
+    });
   };
   render() {
     return (
       <Container> Login
           <Row>
-          <Col>
+          <Col  className="bg-secondary">
             <Form onSubmit={this.handleSubmit}>
               <FormGroup>
                 <Label for="loginUsername">Username:</Label>
@@ -65,7 +75,7 @@ class Login extends Component {
                 <Label for="loginPassword">Password:</Label>
                 <Input type="password" name="password" id="loginPassword" placeholder="Password" maxLength="12" onChange={this.handleChange} />
               </FormGroup>
-              <Button type='submit'>Submit</Button>
+              <Button type='submit' color="primary">Submit</Button>
             </Form >
           </Col>
         </Row>

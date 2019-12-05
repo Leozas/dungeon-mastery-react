@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 
-import NavbarMain from './NavbarMain';
+import { Container, CardDeck, Col, Row } from 'reactstrap'
+import DNDCard from '../AboutDND/DNDCard'
+import DMCard from '../AboutDND/DMCard'
+import DungeonMasteryCard from '../AboutDungeonMastery/DungeonMasteryCard'
+
 
 class Homepage extends Component {
     constructor(props) {
@@ -11,9 +15,17 @@ class Homepage extends Component {
         return (
 
             <>
-
-                <NavbarMain />                
-
+                <Container fluid>
+                    <Row>
+                        <Col>
+                            <CardDeck>
+                                <DNDCard />
+                                <DungeonMasteryCard />
+                                <DMCard />
+                            </CardDeck>
+                        </Col>
+                    </Row>
+                </Container>
             </>
 
         );

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Container, Col, Row, Table } from 'reactstrap'
+import { Container, Col, Row, Table, Button, UncontrolledCollapse } from 'reactstrap'
 import axios from 'axios'
 
 class DescriptionArmors extends Component {
@@ -45,7 +45,7 @@ class DescriptionArmors extends Component {
             <>
                 <Container>
                     <Row>
-                        <Col>
+                        <Col className="bg-secondary">
                             <h3>
                                 Armors
                             </h3>
@@ -55,20 +55,27 @@ class DescriptionArmors extends Component {
                                 </p>
                             </Col>
                             <Col>
-                                <Table responsive bordered hover size="sm">
-                                    <thead>
-                                        <tr>
-                                            <th>#</th>
-                                            <th>Armor</th>
-                                            <th>Description</th>
-                                            <th>Armor Class</th>
-                                            <th>Armor Type</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        {this.tableData()}
-                                    </tbody>
-                                </Table>
+                                <div>
+                                    <Button color="primary" id="togglerarmors" style={{ marginBottom: '1rem' }}>
+                                        Toggle Description Table
+                                     </Button>
+                                    <UncontrolledCollapse toggler="#togglerarmors">
+                                        <Table responsive bordered hover size="sm">
+                                            <thead>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>Armor</th>
+                                                    <th>Description</th>
+                                                    <th>Armor Class</th>
+                                                    <th>Armor Type</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {this.tableData()}
+                                            </tbody>
+                                        </Table>
+                                    </UncontrolledCollapse>
+                                </div>
                             </Col>
                         </Col>
                     </Row>

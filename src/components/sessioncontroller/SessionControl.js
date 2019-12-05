@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import { Container, Row, Col } from 'reactstrap';
-
-import DescriptionAttributes from './DescriptionAttributes';
-import DescriptionWeapons from './DescriptionWeapons';
-import DescriptionArmors from './DescriptionArmors';
-import DescriptionSpells from './DescriptionSpells';
+import Login from './Login';
+import Register from './Register'
+import Logout from './Logout';
 
 class SessionControl extends Component {
   constructor(props) {
@@ -16,19 +14,16 @@ class SessionControl extends Component {
 
   render() {
     return (
-      <Container fluid >
+      <Container>
           <Row>
-              <Col>>
-              <DescriptionAttributes />
+              <Col>
+              <Register />
               </Col>
               <Col>
-              <DescriptionWeapons />
+              <Login />
               </Col>
               <Col>
-              <DescriptionArmors />
-              </Col>
-              <Col>
-              <DescriptionSpells />
+              <Logout />
               </Col>
           </Row>
       </Container>

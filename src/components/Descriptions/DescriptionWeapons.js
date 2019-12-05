@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Container, Col, Row, Table } from 'reactstrap'
+import { Container, Col, Row, Table, Button, UncontrolledCollapse } from 'reactstrap'
 import axios from 'axios'
 
 class DescriptionWeapons extends Component {
@@ -45,7 +45,7 @@ class DescriptionWeapons extends Component {
             <>
                 <Container>
                     <Row>
-                        <Col>
+                        <Col className="bg-secondary">
                             <h3>
                                 Armors
                             </h3>
@@ -57,21 +57,28 @@ class DescriptionWeapons extends Component {
                                 </p>
                             </Col>
                             <Col>
-                                <Table responsive bordered hover size="sm">
-                                    <thead>
-                                        <tr>
-                                            <th>#</th>
-                                            <th>Weapon</th>
-                                            <th>Description</th>
-                                            <th>Weapon Type</th>
-                                            <th>Damage</th>
-                                            <th>Damage Type</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        {this.tableData()}
-                                    </tbody>
-                                </Table>
+                                <div>
+                                    <Button color="primary" id="togglerweapons" style={{ marginBottom: '1rem' }}>
+                                        Toggle Description Table
+                                     </Button>
+                                    <UncontrolledCollapse toggler="#togglerweapons">
+                                        <Table responsive bordered hover size="sm">
+                                            <thead>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>Weapon</th>
+                                                    <th>Description</th>
+                                                    <th>Weapon Type</th>
+                                                    <th>Damage</th>
+                                                    <th>Damage Type</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {this.tableData()}
+                                            </tbody>
+                                        </Table>
+                                    </UncontrolledCollapse>
+                                </div>
                             </Col>
                         </Col>
                     </Row>

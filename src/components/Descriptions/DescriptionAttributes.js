@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Container, Col, Row, Table } from 'reactstrap'
+import { Container, Col, Row, Table, Button, UncontrolledCollapse } from 'reactstrap'
 import axios from 'axios'
 
 class DescriptionAttributes extends Component {
@@ -25,7 +25,7 @@ class DescriptionAttributes extends Component {
         return this.state.attributes.map((attributes, index) => {
             const { id, attribute, description } = attributes //destructuring
             return (
-                
+
                 <tr key={id}>
                     <td>{id}</td>
                     <td>{attribute}</td>
@@ -44,7 +44,7 @@ class DescriptionAttributes extends Component {
             <>
                 <Container>
                     <Row>
-                        <Col>
+                        <Col className="bg-secondary">
                             <h3>
                                 Attributes (Abilities)
                             </h3>
@@ -54,18 +54,25 @@ class DescriptionAttributes extends Component {
                                 </p>
                             </Col>
                             <Col>
-                                <Table responsive bordered hover size="sm">
-                                    <thead>
-                                        <tr>
-                                            <th>#</th>
-                                            <th>Attribute</th>
-                                            <th>Description</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        {this.tableData()}
-                                    </tbody>
-                                </Table>
+                                <div>
+                                    <Button color="primary" id="togglerattributes" style={{ marginBottom: '1rem' }}>
+                                        Toggle Description Table
+                                     </Button>
+                                    <UncontrolledCollapse toggler="#togglerattributes">
+                                        <Table responsive bordered hover size="sm">
+                                            <thead>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>Attribute</th>
+                                                    <th>Description</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {this.tableData()}
+                                            </tbody>
+                                        </Table>
+                                    </UncontrolledCollapse>
+                                </div>
                             </Col>
                         </Col>
                     </Row>
